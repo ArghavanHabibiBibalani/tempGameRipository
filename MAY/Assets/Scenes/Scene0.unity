@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 451682132}
   - component: {fileID: 451682131}
   - component: {fileID: 451682133}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -702,11 +702,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cd18aecb661a7a4f841cc1c28447443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedController: 15
-  jumpSpeed: 15
-  jumpTimes: 2
+  speedController: 200
+  jumpSpeed: 10
+  jumpTimes: 5
   groroundLayer:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 8
   rigidBody: {fileID: 1309853609}
   feet: {fileID: 765986864}

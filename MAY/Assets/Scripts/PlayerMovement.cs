@@ -16,43 +16,44 @@ public class PlayerMovement : MonoBehaviour
     float jumpCoolDown;
     void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * speedController;//A == -1 == BACK AND D == 1 == FORWARD
+        horizontalMove = Input.GetAxisRaw("Horizontal") * speedController * Time.deltaTime;//A == -1 == BACK AND D == 1 == FORWARD
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && jumpCounter < jumpTimes)
         {
             Jump();
         }
-        //CheakGrounded();
     }
     void FixedUpdate()//MOVE THE CHARECTER
     {
-        //if(isGrounded || jumpCounter < jumpTimes)
-        //{
+        if ( jumpCounter < jumpTimes)
+        {
             rigidBody.velocity = new Vector2(horizontalMove, rigidBody.velocity.y);
-        //    jumpCounter++;
-        //}
-      
+
+        }
     }
+
     void Jump()
     {
         rigidBody.velocity = new Vector2(rigidBody.velocity.x, jumpSpeed);
+        jumpCounter++;
     }
-    //void CheakGrounded()
-    //{
-    //    if (Physics2D.OverlapCircle(feet.position, 0.2f, groroundLayer))
-    //    {
-    //        isGrounded = true;
-    //        jumpCounter = 0;
-    //        jumpCoolDown = Time.time + 0.2f;
-    //    }
-    //    else if (Time.time < jumpCoolDown)
-    //    {
-    //        isGrounded = true;
-    //    }
-    //    else
-    //    {
-    //        isGrounded = false;
+    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground")) 
+        {
+            jumpCounter = 0;
+        }
+        else if (Time.time < jumpCoolDown)
+        {
+            isGrounded = true;
+        }
+        else
+        {
+            isGrounded = false;
+        }
+    }
 
-    //    }
-    //}
+
+
 }
