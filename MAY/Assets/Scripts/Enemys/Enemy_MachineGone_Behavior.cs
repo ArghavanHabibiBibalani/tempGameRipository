@@ -25,7 +25,7 @@ public class Enemy_MachineGone_Behavior : MonoBehaviour
         if(distance < 10)
         {
             timer += Time.deltaTime;
-            if(timer > 2)
+            if(timer > 0.5)
             {
                 timer = 0;
                 shot();
