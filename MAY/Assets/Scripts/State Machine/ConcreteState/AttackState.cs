@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ public class AttackState : BaseState
 
     public AttackState (Enemy_Ai enemy,StateMachine stateMachine) : base (enemy,stateMachine)
     {
-
+        
     }
     public override void AnimationTriggerEvent()
     {

@@ -1,7 +1,8 @@
 
 
-public abstract class AbstractDeadState : IBaseState, IAnimatable
+public abstract class AbstractDeadState : IBaseState, IAnimatable, IStateMachine
 {
+    public IBaseState CurrentState => throw new System.NotImplementedException();
 
     // Default behavior for child states in case they don't override these methods
     public virtual void EnterState() // Handle transition animation here
@@ -24,6 +25,16 @@ public abstract class AbstractDeadState : IBaseState, IAnimatable
         throw new System.NotImplementedException();
     }
     public virtual void AnimationTriggerEvent() 
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ChangeState(BaseState newState)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ChangeState(IBaseState newState)
     {
         throw new System.NotImplementedException();
     }

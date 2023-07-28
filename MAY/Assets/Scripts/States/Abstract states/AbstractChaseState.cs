@@ -1,7 +1,9 @@
 
 
-public class AbstractChaseState : IBaseState, IAnimatable
+public class AbstractChaseState : IBaseState, IAnimatable, IStateMachine
 {
+    public IBaseState CurrentState => throw new System.NotImplementedException();
+
     // Default behavior for child states in case they don't override these methods
     public virtual void EnterState()
     {
@@ -23,6 +25,16 @@ public class AbstractChaseState : IBaseState, IAnimatable
         throw new System.NotImplementedException();
     }
     public virtual void AnimationTriggerEvent()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ChangeState(BaseState newState)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void ChangeState(IBaseState newState)
     {
         throw new System.NotImplementedException();
     }
