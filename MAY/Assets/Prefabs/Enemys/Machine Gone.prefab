@@ -111,8 +111,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1268227567210573673}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8e92050002225441aab40625407d3c6, type: 3}
+  m_Script: {fileID: 11500000, guid: e538677badcee3744953e42cbd19aea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4408195091909009293, guid: e83ee99dcadc77e4788f0247dcda2ba2, type: 3}
-  bulletPos: {fileID: 4440853217732796160, guid: e83ee99dcadc77e4788f0247dcda2ba2, type: 3}
+  bulletPos: {fileID: 0}
+  timer: 0
+  player: {fileID: 0}

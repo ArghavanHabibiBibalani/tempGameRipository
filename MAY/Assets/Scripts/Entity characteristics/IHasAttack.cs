@@ -2,5 +2,5 @@
 
 public interface IHasAttack
 {
-    public AbstractAttackState AttackState { get; }
+    public AbstractAttackState AttackState { get; set; }
 }
