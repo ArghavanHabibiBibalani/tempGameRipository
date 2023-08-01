@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMachineGoneBulletBehavior : MonoBehaviour
+public class EnemyMachineGunBulletBehavior : MonoBehaviour
 {
     private GameObject player;
     private Rigidbody2D rb;

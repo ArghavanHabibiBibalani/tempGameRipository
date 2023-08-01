@@ -24,7 +24,7 @@ public class EnemyMachineGunBehavior : MonoBehaviour, IHasIdle, IHasAttack , IEn
      {
         _stateMachine = new StateMachine();
         IdleState = new IdelStateMachineGun();
-        AttackState = new AttackStateMachineGun(this);
+        AttackState = new MachineGunAttackState(this);
         
         _stateMachine.CurrentState = IdleState;  
 

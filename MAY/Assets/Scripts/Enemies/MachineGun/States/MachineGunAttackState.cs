@@ -1,10 +1,10 @@
 using UnityEngine;
 
 
-public class AttackStateMachineGun : AbstractAttackState
+public class MachineGunAttackState : AbstractAttackState
 {
     public EnemyMachineGunBehavior machineGun;
-    public AttackStateMachineGun(EnemyMachineGunBehavior machineGun) 
+    public MachineGunAttackState(EnemyMachineGunBehavior machineGun) 
     {
         this.machineGun = machineGun;
     }
