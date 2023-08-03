@@ -1,6 +1,8 @@
 public interface IStateMachine 
 {
-    public IBaseState CurrentState { get; set; }
+    public string Name { get; }  
+    public IBaseState CurrentState { get; }
 
-    public void ChangeState(IBaseState newState);
+    public void SetNextState(IBaseState nextState);
+    public void SetMainAsNextState();
 }
