@@ -23,7 +23,7 @@ public class StateMachine : MonoBehaviour, IStateMachine
     }
     void LateUpdate()
     {
-        // *** CurrentState?.LateUpdate();
+        CurrentState?.LateUpdate();
     }
     private void OnValidate()
     {
@@ -53,7 +53,7 @@ public class StateMachine : MonoBehaviour, IStateMachine
             nextState = null;
             CurrentState?.ExitState();
             CurrentState = newState;
-            /// *** CurrentState.EnterState(this);
+            CurrentState.EnterState(this);
         }
     }
 }
