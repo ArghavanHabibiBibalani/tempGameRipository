@@ -1,14 +1,13 @@
+
 public interface IBaseState
 {
-    public abstract void EnterState();
+    public void EnterState(StateMachine stateMachine);
 
-    public abstract void ExitState();
+    public void ExitState();
 
-    public abstract void Update();
+    public void Update();
 
-    public abstract void FixedUpdate();
+    public void FixedUpdate();
 
-    public virtual void LateUpdate();
-
-    public static viod Destroy(UnityEngine.Object object);
+    public void LateUpdate();
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BaseState : IBaseState
 {
-    protected float Time { get; set; }
+    protected float UpdateTime { get; set; }
     protected float FixedTime { get; set; }
     protected float LateTime { get; set; }
 
@@ -22,7 +22,7 @@ public abstract class BaseState : IBaseState
 
     public virtual void Update()
     {
-        Time += Time.deltaTime;
+        UpdateTime += Time.deltaTime;
     }
 
     public virtual void FixedUpdate()
@@ -35,9 +35,9 @@ public abstract class BaseState : IBaseState
         LateTime += Time.deltaTime;
     }
 
-    public static viod Destroy(UnityEngine.Object object)
+    protected void Destroy(UnityEngine.Object obj)
     {
-        UnityEngine.Object.Destroy(object);
+        UnityEngine.Object.Destroy(obj);
     }
 
     protected E GetComponent<E>() where E : Component
@@ -45,15 +45,13 @@ public abstract class BaseState : IBaseState
         return StateMachine.GetComponent<E>();
     }
 
-    protected Component GetComponent<>(System.Type type)
+    protected Component GetComponent(System.Type type)
     {
         return StateMachine.GetComponent(type);
     }
 
-    protected Component GetComponent(string type) 
-    { 
-        return StateMachine.GetComponent(type); 
+    protected Component GetComponent(string type)
+    {
+        return StateMachine.GetComponent(type);
     }
-
-
 }

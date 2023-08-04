@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class EnemyMachineGunBehavior : MonoBehaviour, IHasIdle, IHasAttack , IEntityBihavior
+public class EnemyMachineGunBehavior : MonoBehaviour
 {
 
-    public AbstractIdleState IdleState { get; set; }
-    public AbstractAttackState AttackState { get; set; }
+    //public AbstractIdleState IdleState { get; set; }
+    //public AbstractAttackState AttackState { get; set; }
 
     public StateMachine _stateMachine { get; set; }
 
@@ -23,10 +23,7 @@ public class EnemyMachineGunBehavior : MonoBehaviour, IHasIdle, IHasAttack , IEn
      void Awake() 
      {
         _stateMachine = new StateMachine();
-        IdleState = new IdelStateMachineGun();
-        AttackState = new MachineGunAttackState(this);
         
-        _stateMachine.CurrentState = IdleState;  
 
         player = GameObject.FindGameObjectWithTag("Player");
 
@@ -35,21 +32,21 @@ public class EnemyMachineGunBehavior : MonoBehaviour, IHasIdle, IHasAttack , IEn
 
     void Update()
     {
-        _stateMachine.CurrentState.FrameUpdate();
+        _stateMachine.CurrentState.Update();
 
 
         distanceFromPlayer = Vector2.Distance(transform.position, player.transform.position);
 
    
-        if (distanceFromPlayer < 10 && _stateMachine.CurrentState != AttackState)
+        if (distanceFromPlayer < 10)
         {
-            _stateMachine.ChangeState(AttackState);
+            //_stateMachine.ChangeState(AttackState);
             flag= true;
             
         }
-        else if(distanceFromPlayer >= 10 && flag == true && _stateMachine.CurrentState != IdleState)
+        else if(distanceFromPlayer >= 10 && flag == true)
         {
-            _stateMachine.ChangeState(IdleState);
+            //_stateMachine.ChangeState(IdleState);
             flag= false;
         }
 

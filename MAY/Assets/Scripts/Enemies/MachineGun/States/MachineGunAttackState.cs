@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-public class MachineGunAttackState : AbstractAttackState
+public class MachineGunAttackState : IBaseState
 {
     public EnemyMachineGunBehavior machineGun;
     public MachineGunAttackState(EnemyMachineGunBehavior machineGun) 
@@ -9,19 +9,18 @@ public class MachineGunAttackState : AbstractAttackState
         this.machineGun = machineGun;
     }
 
-    public override void EnterState()
+    public void EnterState(StateMachine stateMachine)
     {
-        base.EnterState();
+
     }
 
-    public override void ExitState()
+    public void ExitState()
     {
-        base.ExitState();
+
     }
 
-    public override void FrameUpdate()
+    public void Update()
     {
-        base.FrameUpdate();
         machineGun.timer += Time.deltaTime;
         if (machineGun.timer > 0.5)
         {
@@ -30,5 +29,13 @@ public class MachineGunAttackState : AbstractAttackState
         }
     }
 
-    
+    public void FixedUpdate()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void LateUpdate()
+    {
+        throw new System.NotImplementedException();
+    }
 }

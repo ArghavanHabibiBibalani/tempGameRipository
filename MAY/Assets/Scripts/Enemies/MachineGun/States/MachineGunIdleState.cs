@@ -1,3 +1,3 @@
-public class IdelStateMachineGun : AbstractIdleState
+public class IdelStateMachineGun
 {
 }
